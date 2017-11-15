@@ -1,17 +1,8 @@
-# Blockly [![Build Status]( https://travis-ci.org/google/blockly.svg?branch=master)](https://travis-ci.org/google/blockly)
+# blockly_pi
 
 
-Google's Blockly is a web-based, visual programming editor.  Users can drag
-blocks together to build programs.  All code is free and open source.
-
-**The project page is https://developers.google.com/blockly/**
-
-![](https://developers.google.com/blockly/images/sample.png)
-
-Blockly has an active [developer forum](https://groups.google.com/forum/#!forum/blockly). Please drop by and say hello. Show us your prototypes early; collectively we have a lot of experience and can offer hints which will save you time.
-
-Help us focus our development efforts by telling us [what you are doing with
-Blockly](https://developers.google.com/blockly/registration). The questionnaire only takes
-a few minutes and will help us better support the Blockly community.
-
-Want to contribute? Great! First, read [our guidelines for contributors](https://developers.google.com/blockly/guides/modify/contributing).
+我把google blockly客製化成專用產生python code的圖形化程式開發工具  
+一開始我只增修了三個功能：  
+1.數值積木可以輸入例如0xff的十六進制數字  
+2.新增create parameters list積木，用來產生有些副程式的不定數目引數，例如i2c_write  
+3.在Math 新增 int、float兩個函數，解決從list取出元素時，要轉換才能數值運算  
