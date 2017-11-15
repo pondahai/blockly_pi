@@ -240,7 +240,8 @@ Code.LANG = Code.getLang();
  * List of tab names.
  * @private
  */
-Code.TABS_ = ['blocks', 'javascript', 'php', 'python', 'dart', 'lua', 'xml'];
+//Code.TABS_ = ['blocks', 'javascript', 'php', 'python', 'dart', 'lua', 'xml'];
+Code.TABS_ = ['blocks',  'python', 'xml'];
 
 Code.selected = 'blocks';
 
@@ -412,7 +413,7 @@ Code.init = function() {
 
   // Add to reserved word list: Local variables in execution environment (runJS)
   // and the infinite loop detection function.
-  Blockly.JavaScript.addReservedWords('code,timeouts,checkTimeout');
+  //Blockly.JavaScript.addReservedWords('code,timeouts,checkTimeout');
 
   Code.loadBlocks('');
 
@@ -537,3 +538,14 @@ document.write('<script src="msg/' + Code.LANG + '.js"></script>\n');
 document.write('<script src="../../msg/js/' + Code.LANG + '.js"></script>\n');
 
 window.addEventListener('load', Code.init);
+
+Blockly.Python['parameters_create_with'] = function(block) {
+  // Create a list with any number of elements of any type.
+  var elements = new Array(block.itemCount_);
+  for (var i = 0; i < block.itemCount_; i++) {
+    elements[i] = Blockly.Python.valueToCode(block, 'ADD' + i,
+        Blockly.Python.ORDER_NONE) || 'None';
+  }
+  var code = '' + elements.join(', ') + '';
+  return [code, Blockly.Python.ORDER_ATOMIC];
+};
